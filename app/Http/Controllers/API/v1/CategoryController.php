@@ -15,7 +15,14 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::all();
+        return response()->json([
+            'status'=>200,
+            'data'=>Category::all(),
+            'message'=>'Obtenido correctamente'
+        ], 200);
+        //Category::all();
+        /*Category::create(["catCode"=>'34',
+    "catName"=>"fjasdfjñlasd"]);*/
     }
 
     /**

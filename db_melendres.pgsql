@@ -15,21 +15,26 @@ insert into test (name) values ('HOla');
 
 
 CREATE TABLE category(
-    catId SERIAL PRIMARY KEY, 
-    catCode varchar(10),
-    catName VARCHAR,
-    catNameLong varchar, 
-    catDescription varchar,
+    "catId" SERIAL PRIMARY KEY, 
+    "catCode" varchar(10),
+    "catName" VARCHAR,
+    "catNameLong" varchar, 
+    "catDescription" varchar,
     
 
 
-    catAuth varchar(10) DEFAULT 'Ninguno', /*DNI, RUC*/ 
-    catIdParent INTEGER,
+    "catAuth" varchar(10) DEFAULT 'Ninguno', /*DNI, RUC*/ 
+    "catIdParent" INTEGER,
 
     updated_at timestamp, 
     created_at timestamp,
-    FOREIGN KEY (catIdParent) REFERENCES category(catId) 
+    FOREIGN KEY ("catIdParent") REFERENCES category("catId") 
 );
+
+insert into category("catCode", "catName","catIdParent") values ( '4LA','dentro e 01', 1)
+
+
+drop table category
 
 
 CREATE TABLE teller(
@@ -106,7 +111,7 @@ CREATE TABLE person(
     perEmail varchar(50), 
 
     updated_at timestamp, 
-    created_at timestamp,
+    created_at timestamp
 );
 
 
@@ -137,27 +142,25 @@ CREATE table bussines(
     bussState  char(5), /*Activo, suspendido, renicio */
     bussStateDate timestamp,
 
-    /*Archivadores*//
+    /*Archivadores*/
     bussFileKind char(2), /*Archivador y Folder*/
     bussFileNumber integer, 
     bussRegime char(2), /*Especial y MYPE triburatio y regimen general */
     bussKindBookAcc char(2), /*TIpo de libro = Electronico y computarizado, */
 
-    
-
     /**/
 
+    bussTel varchar(10),
+    bussEmail varchar(50),
+    
     bussObservation text,
 
 
     perId INTEGER,
-    FOREIGN KEY (perId) REFERENCES person(perId)
-
-    bussTel varchar(10),
-    bussEmail varchar(50),
+    FOREIGN KEY (perId) REFERENCES person(perId),
 
     updated_at timestamp, 
-    created_at timestamp,
+    created_at timestamp
 );
 
 create table controlExercise(
@@ -172,6 +175,9 @@ create table controlExercise(
 
 
 
-
-
+insert into test1('CampoUnO', campoDos) values('casa', 'algo mas')
+create table test1(
+    "CampoUnO" varchar(10),
+    campoDos varchar(23)
+)
 
